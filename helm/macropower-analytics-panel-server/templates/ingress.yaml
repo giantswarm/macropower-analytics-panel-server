@@ -23,7 +23,3 @@ spec:
               number: {{ .Values.server.service.port }}
           path: /{{ .Values.server.ingress.analytics }}(/|$)(.*)
           pathType: ImplementationSpecific
-  tls:
-  - hosts:
-    - {{ .Values.server.ingress.host }}
-    secretName: {{ include "resource.default.name" . }}-tls
