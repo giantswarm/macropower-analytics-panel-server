@@ -26,15 +26,6 @@ server:
     host: ""
     path: "/"
 
-certificate:
-  monitoring:
-    crtPem: ""
-    keyPem: ""
-
-security:
-  letsencrypt:
-    enabled: true
-
 registry:
   domain: quay.io
   pullSecret:
