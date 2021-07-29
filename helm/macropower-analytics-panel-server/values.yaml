@@ -1,0 +1,32 @@
+name: macropower-analytics-panel-server
+namespace: monitoring
+serviceType: managed
+
+pod:
+  user:
+    id: 1000
+  group:
+    id: 1000
+
+project:
+  branch: "[[ .Branch ]]"
+  commit: "[[ .SHA ]]"
+
+server:
+  image:
+    name: giantswarm/macropower-analytics-panel-server
+    tag: 0.0.1
+    pullPolicy: IfNotPresent
+  port: 8080
+
+  service:
+    port: 8080
+
+  ingress:
+    host: ""
+    path: "/"
+
+registry:
+  domain: quay.io
+  pullSecret:
+    dockerConfigJSON: "Cg=="

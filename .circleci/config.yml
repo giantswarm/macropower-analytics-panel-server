@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@2.11.0
+  architect: giantswarm/architect@4.0.0
 
 workflows:
   package-and-push-chart-on-tag:
@@ -8,11 +8,78 @@ workflows:
       - architect/push-to-app-catalog:
           context: "architect"
           # executor: "app-build-suite" # uncomment this if you want automatic metadata generation
-          name: "package and push {APP-NAME} chart"
+          name: "giantswarm-playground-catalog"
           app_catalog: "giantswarm-playground-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "{APP-NAME}"
+          chart: "macropower-analytics-panel-server"
           # Trigger job on git tag.
           filters:
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-catalog:
+          context: architect
+          # executor: "app-build-suite" # uncomment this if you want automatic metadata generation
+          name: app-catalog
+          app_catalog: "control-plane-catalog"
+          app_catalog_test: "control-plane-test-catalog"
+          chart: "macropower-analytics-panel-server"
+          filters:
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: aws-app-collection
+          app_name: "macropower-analytics-panel-server"
+          app_namespace: "monitoring"
+          app_collection_repo: "aws-app-collection"
+          requires:
+          - app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: "azure-app-collection"
+          app_name: "macropower-analytics-panel-server"
+          app_namespace: "monitoring"
+          app_collection_repo: "azure-app-collection"
+          requires:
+          - app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: kvm-app-collection
+          app_name: "macropower-analytics-panel-server"
+          app_namespace: "monitoring"
+          app_collection_repo: "kvm-app-collection"
+          requires:
+          - app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+              
+      - architect/push-to-app-collection:
+          context: architect
+          name: vmware-app-collection
+          app_name: "macropower-analytics-panel-server"
+          app_namespace: "monitoring"
+          app_collection_repo: "vmware-app-collection"
+          requires:
+          - app-catalog
+          filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/

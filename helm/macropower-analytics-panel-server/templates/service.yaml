@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "resource.default.name" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+    giantswarm.io/monitoring: "true"
+  annotations:
+    giantswarm.io/monitoring-path: "/metrics"
+    giantswarm.io/monitoring-port: "{{ .Values.server.service.port }}"
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+spec:
+  ports:
+  - name: web
+    protocol: TCP
+    port: {{ .Values.server.service.port }}
+    targetPort: {{ .Values.server.port }}
+  selector:
+    {{- include "labels.selector" . | nindent 4 }}
