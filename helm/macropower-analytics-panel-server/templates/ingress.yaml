@@ -18,5 +18,5 @@ spec:
             name: {{ include "resource.default.name" . }}
             port:
               number: {{ .Values.server.service.port }}
-          path: /{{ .Values.server.ingress.analytics }}(/|$)(.*)
-          pathType: ImplementationSpecific
+        path: /{{ .Values.server.ingress.path }}(/|$)(.*)
+        pathType: ImplementationSpecific
