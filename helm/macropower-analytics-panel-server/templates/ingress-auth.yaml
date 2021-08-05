@@ -20,5 +20,5 @@ spec:
             port:
               number: 3000
         #TODO: change path
-        path: /grafana-fauth
+        path: /grafana-auth
         pathType: Prefix
