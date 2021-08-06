@@ -15,10 +15,8 @@ spec:
       paths:
       - backend:
           service:
-            #TODO: template name and port number
             name: grafana
             port:
               number: 3000
-        #TODO: change path
         path: /grafana-auth
         pathType: Prefix
