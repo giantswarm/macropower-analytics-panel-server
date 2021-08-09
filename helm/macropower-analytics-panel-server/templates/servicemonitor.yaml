@@ -6,6 +6,8 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
 spec:
+  endpoints:
+  - port: web
   selector:
     matchLabels:
       {{- include "labels.selector" . | nindent 6 }}
