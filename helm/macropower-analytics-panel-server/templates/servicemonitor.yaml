@@ -8,6 +8,9 @@ metadata:
 spec:
   endpoints:
   - port: web
+    relabelings:
+    - action: "labeldrop"
+      regex: "(user.*)"
   selector:
     matchLabels:
       {{- include "labels.selector" . | nindent 6 }}
