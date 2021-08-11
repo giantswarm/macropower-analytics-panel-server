@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add Ingress auth using Grafana authentication.
 
+### Changed
+
+- Avoids storing user labels (`user_name`, `user_email`) in metrics as we do
+  not need them and this avoids any issues with storing PII.
+
 ## [0.1.1] - 2021-07-29
 
 ### Changed
