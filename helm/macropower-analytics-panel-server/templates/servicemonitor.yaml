@@ -8,7 +8,7 @@ metadata:
 spec:
   endpoints:
   - port: web
-    relabelings:
+    metricRelabelings:
     - action: "labeldrop"
       regex: "(user.*)"
   selector:
