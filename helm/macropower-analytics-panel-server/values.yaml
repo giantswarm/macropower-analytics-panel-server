@@ -13,6 +13,8 @@ project:
   commit: "[[ .SHA ]]"
 
 server:
+  args: []
+
   image:
     name: giantswarm/macropower-analytics-panel-server
     tag: 0.0.1
