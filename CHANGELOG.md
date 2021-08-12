@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Ingress auth using Grafana authentication.
 - Add ServiceMonitor for Prometheus scrape to take place.
 
+### Changed
+
+- Restrict ingress to /write
+
 ## [0.1.1] - 2021-07-29
 
 ### Changed
