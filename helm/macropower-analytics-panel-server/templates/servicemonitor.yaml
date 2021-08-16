@@ -9,26 +9,7 @@ spec:
   endpoints:
   - port: web
     relabelings:
-    - replacement: macropower-analytics-panel-server
-      targetLabel: app
-    - replacement: {{ .codename }}
-      targetLabel: cluster_id
-    - replacement: management_cluster
-      targetLabel: cluster_type
-    - replacement: {{ .provider.kind }}
-      targetLabel: provider
-    - replacement: {{ .codename }}
-      targetLabel: installation
-    - sourceLabels: [__meta_kubernetes_namespace]
-      targetLabel: namespace
-    - sourceLabels: [__meta_kubernetes_pod_name]
-      targetLabel: pod
-    - sourceLabels: [__meta_kubernetes_pod_container_name]
-      targetLabel: container
-    - sourceLabels: [__meta_kubernetes_pod_node_name]
-      targetLabel: node
-    - sourceLabels: [__meta_kubernetes_node_label_role]
-      targetLabel: role
+{{ toYaml .Values.serviceMonitor.relabelings | indent 4 }}
     metricRelabelings:
     - action: "labeldrop"
       regex: "(user.*)"
