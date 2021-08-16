@@ -11,13 +11,13 @@ spec:
     relabelings:
     - replacement: macropower-analytics-panel-server
       targetLabel: app
-    - replacement: {{`{{ .codename }}`}}
+    - replacement: {{ .codename }}
       targetLabel: cluster_id
     - replacement: management_cluster
       targetLabel: cluster_type
-    - replacement: {{`{{ .provider.kind }}`}}
+    - replacement: {{ .provider.kind }}
       targetLabel: provider
-    - replacement: {{`{{ .codename }}`}}
+    - replacement: {{ .codename }}
       targetLabel: installation
     - sourceLabels: [__meta_kubernetes_namespace]
       targetLabel: namespace
