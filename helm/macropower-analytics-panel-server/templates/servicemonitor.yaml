@@ -11,7 +11,7 @@ spec:
     relabelings:
     - replacement: macropower-analytics-panel-server
       targetLabel: app
-    - replacement: {{`{{ .codename }}`}}`}}
+    - replacement: {{`{{ .codename }}`}}
       targetLabel: cluster_id
     - replacement: management_cluster
       targetLabel: cluster_type
