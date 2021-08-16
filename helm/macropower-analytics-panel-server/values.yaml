@@ -32,4 +32,5 @@ registry:
     dockerConfigJSON: "Cg=="
 
 serviceMonitor:
-  relabelings: []
+  relabelings:
+    - ''
