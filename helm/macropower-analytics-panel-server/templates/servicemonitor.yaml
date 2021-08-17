@@ -9,7 +9,7 @@ spec:
   endpoints:
   - port: web
     relabelings:
-{{ toYaml .Values.serviceMonitor.relabelings | indent 4 }}
+{{ .Values.serviceMonitor.relabelings | indent 6 }}
     metricRelabelings:
     - action: "labeldrop"
       regex: "(user.*)"
