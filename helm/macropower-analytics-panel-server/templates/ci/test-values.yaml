@@ -1,4 +1,2 @@
 serviceMonitor:
-  relabelings:
-    - replacement: dummy
-      targetLabel: value
+  relabelings: []
