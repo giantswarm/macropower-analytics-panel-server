@@ -9,5 +9,5 @@ sources:
 - https://github.com/MacroPower/macropower-analytics-panel/tree/master/server
 version: [[ .Version ]]
 annotations:
-  config.giantswarm.io/version: "macropower-analytics-servicemonitor"
+  config.giantswarm.io/version: 1.x.x
   application.giantswarm.io/team: "atlas"
