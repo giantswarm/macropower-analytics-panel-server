@@ -64,6 +64,11 @@ spec:
           limits:
             cpu: 250m
             memory: 250Mi
+        {{- if not .Values.letsencrypt }}
+        volumeMounts:
+        - name: trusted-ca
+          mountPath: /etc/ssl/certs
+        {{- end }}
       imagePullSecrets:
       - name: {{ include "resource.pullSecret.name" . }}
       serviceAccountName: {{ include "resource.default.name"  . }}
@@ -71,3 +76,13 @@ spec:
         runAsNonRoot: true
         runAsUser: {{ .Values.pod.user.id }}
         runAsGroup: {{ .Values.pod.group.id }}
+      {{- if not .Values.letsencrypt }}
+      volumes:
+      - name: trusted-ca
+        secret:
+          ## This relies on Grafana being present
+          secretName: grafana-trusted-ca
+          items:
+          - key: ca.pem
+            path: ca-certificates.crt
+      {{- end }}
