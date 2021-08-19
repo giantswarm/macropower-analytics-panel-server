@@ -36,7 +36,7 @@ spec:
         {{- if .Values.server.args }}
         args:
         {{- range $key, $value := .Values.server.args }}
-          - --={{ $value }}
+          - {{ $value }}
         {{- end }}
         {{- end }}
         ports:
