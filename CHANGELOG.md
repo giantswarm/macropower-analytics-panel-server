@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add support for overriding server args through Helm values.
+
 ## [0.2.1] - 2021-08-19
 
 ### Fixed
