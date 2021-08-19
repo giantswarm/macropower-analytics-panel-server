@@ -9,8 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add Ingress auth using Grafana authentication.
 - Add support for overriding server args through Helm values.
+
+## [0.2.1] - 2021-08-19
+
+### Fixed
+
+- Add missing labeling schema to service monitor.
+
+## [0.2.0] - 2021-08-12
+
+### Added
+
+- Add Ingress auth using Grafana authentication.
+- Add ServiceMonitor for Prometheus scrape to take place.
+
+### Changed
+
+- Restrict ingress to /write
 
 ## [0.1.1] - 2021-07-29
 
@@ -24,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add initial app version.
 
-[Unreleased]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/macropower-analytics-panel-server-app/releases/tag/v0.1.0
