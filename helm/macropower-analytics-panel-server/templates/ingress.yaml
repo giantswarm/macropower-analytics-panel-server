@@ -1,21 +1,23 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ include "resource.default.name" . }}
   namespace: {{ .Values.namespace }}
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/auth-url: https://$host/grafana-auth
     nginx.ingress.kubernetes.io/rewrite-target: /write
   labels:
     {{- include "labels.common" . | nindent 4 }}
 spec:
+  ingressClassName: nginx
   rules:
   - host: {{ .Values.server.ingress.host }}
     http:
       paths:
       - backend:
-          serviceName: {{ include "resource.default.name" . }}
-          servicePort: {{ .Values.server.service.port }}
+          service:
+            name: {{ include "resource.default.name" . }}
+            port:
+              number: {{ .Values.server.service.port }}
         path: /{{ .Values.server.ingress.path }}/write
-
+        pathType: ImplementationSpecific
