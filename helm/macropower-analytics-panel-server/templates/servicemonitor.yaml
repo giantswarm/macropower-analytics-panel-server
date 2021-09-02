@@ -11,8 +11,7 @@ spec:
     relabelings:
 {{ toYaml .Values.serviceMonitor.relabelings | indent 6 }}
     metricRelabelings:
-    - action: "labeldrop"
-      regex: "(user.*)"
+{{ toYaml .Values.serviceMonitor.metricRelabelings | indent 6 }}
   selector:
     matchLabels:
       {{- include "labels.selector" . | nindent 6 }}
