@@ -34,9 +34,7 @@ registry:
     dockerConfigJSON: "Cg=="
 
 serviceMonitor:
-  metricRelabelings:
-    - action: "labeldrop"
-      regex: "(user_(name|email))"
+  metricRelabelings: []
 
   relabelings:
     - ''
