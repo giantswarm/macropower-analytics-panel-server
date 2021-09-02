@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Move `ServiceMonitor.spec.metricRelabelings` out to config to avoid enforcing
+  PII redacting onto all chart users.
+
 ## [0.3.0] - 2021-08-19
 
 ### Added
