@@ -1,4 +1,8 @@
+{{ if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
 apiVersion: networking.k8s.io/v1
+{{ else }}
+apiVersion: networking.k8s.io/v1beta1
+{{ end }}
 kind: Ingress
 metadata:
   name: {{ include "resource.default.name" . }}
@@ -15,9 +19,14 @@ spec:
     http:
       paths:
       - backend:
+{{ if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
           service:
             name: {{ include "resource.default.name" . }}
             port:
               number: {{ .Values.server.service.port }}
+{{ else }}
+          serviceName: {{ include "resource.default.name" . }}
+          servicePort: {{ .Values.server.service.port }}
+{{ end }}
         path: /{{ .Values.server.ingress.path }}/write
         pathType: ImplementationSpecific
