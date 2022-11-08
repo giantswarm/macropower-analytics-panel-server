@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.3] - 2022-11-08
+
 ### Changed
 
 - Push to `capa-app-collection`, `cloud-director-app-collection` and `vsphere-app-collection`.
@@ -65,7 +67,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add initial app version.
 
-[Unreleased]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.4.3...HEAD
+[0.4.3]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/giantswarm/macropower-analytics-panel-server-app/compare/v0.3.0...v0.4.0
