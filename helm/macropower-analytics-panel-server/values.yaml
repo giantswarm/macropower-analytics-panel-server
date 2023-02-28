@@ -25,6 +25,7 @@ server:
     port: 8080
 
   ingress:
+    externalDNS: false
     host: ""
     path: "/"
 
@@ -37,4 +38,4 @@ serviceMonitor:
   metricRelabelings: []
 
   relabelings:
-    - ''
+    - ""
