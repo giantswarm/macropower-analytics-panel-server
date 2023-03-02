@@ -9,6 +9,10 @@ metadata:
   namespace: {{ .Values.namespace }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    {{- if .Values.server.ingress.externalDNS }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.server.ingress.host }}
+    giantswarm.io/external-dns: managed
+    {{- end }}   
   labels:
     {{- include "labels.common" . | nindent 4 }}
 spec:
