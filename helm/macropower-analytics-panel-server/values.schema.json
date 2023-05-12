@@ -1,0 +1,124 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "namespace": {
+            "type": "string"
+        },
+        "pod": {
+            "type": "object",
+            "properties": {
+                "group": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "user": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "project": {
+            "type": "object",
+            "properties": {
+                "branch": {
+                    "type": "string"
+                },
+                "commit": {
+                    "type": "string"
+                }
+            }
+        },
+        "registry": {
+            "type": "object",
+            "properties": {
+                "domain": {
+                    "type": "string"
+                },
+                "pullSecret": {
+                    "type": "object",
+                    "properties": {
+                        "dockerConfigJSON": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "server": {
+            "type": "object",
+            "properties": {
+                "args": {
+                    "type": "array"
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "pullPolicy": {
+                            "type": "string"
+                        },
+                        "tag": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "ingress": {
+                    "type": "object",
+                    "properties": {
+                        "externalDNS": {
+                            "type": "boolean"
+                        },
+                        "host": {
+                            "type": "string"
+                        },
+                        "path": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "service": {
+                    "type": "object",
+                    "properties": {
+                        "port": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "serviceMonitor": {
+            "type": "object",
+            "properties": {
+                "metricRelabelings": {
+                    "type": "array"
+                },
+                "relabelings": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "serviceType": {
+            "type": "string"
+        }
+    }
+}
