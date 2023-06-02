@@ -110,10 +110,7 @@
                     "type": "array"
                 },
                 "relabelings": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "array"
                 }
             }
         },

@@ -36,6 +36,4 @@ registry:
 
 serviceMonitor:
   metricRelabelings: []
-
-  relabelings:
-    - ""
+  relabelings: []
