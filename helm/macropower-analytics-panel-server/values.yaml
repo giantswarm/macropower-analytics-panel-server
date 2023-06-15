@@ -31,8 +31,6 @@ server:
 
 registry:
   domain: quay.io
-  pullSecret:
-    dockerConfigJSON: "Cg=="
 
 serviceMonitor:
   metricRelabelings: []
