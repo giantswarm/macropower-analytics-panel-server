@@ -2,6 +2,17 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "kyvernoPolicyExceptions": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "namespace": {
+                    "type": "string"
+                }
+            }
+        },
         "name": {
             "type": "string"
         },
