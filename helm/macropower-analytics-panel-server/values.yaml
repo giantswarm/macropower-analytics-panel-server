@@ -2,6 +2,11 @@ name: macropower-analytics-panel-server
 namespace: monitoring
 serviceType: managed
 
+# Enable Kyverno PolicyException
+kyvernoPolicyExceptions:
+  enabled: true
+  namespace: giantswarm
+
 pod:
   user:
     id: 1000
