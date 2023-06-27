@@ -30,7 +30,7 @@ spec:
         - Deployment
         - Pod
         namespaces:
-        - {{ include "resource.default.namespace" . }}
+        - {{ .Values.namespace }}
         names:
         - {{ include "resource.default.name" . }}*
   {{- end -}}

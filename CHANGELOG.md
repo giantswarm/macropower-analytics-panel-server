@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.6.1] - 2023-06-27
 
+### Fixed
+
+- Fix Kyverno Policy Exceptions namespace.
+
 ## [0.6.0] - 2023-06-27
 
 ### Added
