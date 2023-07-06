@@ -28,6 +28,7 @@ spec:
     - resources:
         kinds:
         - Deployment
+        - ReplicaSet
         - Pod
         namespaces:
         - {{ .Values.namespace }}
