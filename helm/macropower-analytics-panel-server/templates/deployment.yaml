@@ -61,8 +61,6 @@ spec:
           periodSeconds: 5
           successThreshold: 1
           timeoutSeconds: 3
-        securityContext:
-          readOnlyRootFilesystem: true
         resources:
           requests:
             cpu: 100m
@@ -70,8 +68,12 @@ spec:
           limits:
             cpu: 250m
             memory: 250Mi
-      serviceAccountName: {{ include "resource.default.name"  . }}
+        securityContext:
+          {{- with .Values.containerSecurityContext }}
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
       securityContext:
-        runAsNonRoot: true
-        runAsUser: {{ .Values.pod.user.id }}
-        runAsGroup: {{ .Values.pod.group.id }}
+        {{- with .Values.podSecurityContext }}
+          {{- . | toYaml | nindent 8 }}
+        {{- end }}
+      serviceAccountName: {{ include "resource.default.name"  . }}
